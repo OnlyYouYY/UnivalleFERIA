@@ -16,6 +16,6 @@ function ipaddress()
         $ipaddress = getenv('REMOTE_ADDR');
     else
         $ipaddress = 'UNKNOWN';
-    return $ipaddress;asdasfsafasd
+    return $ipaddress;
 }
 echo "Su direccion IP es: " .ipaddress();
