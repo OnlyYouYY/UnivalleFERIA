@@ -139,7 +139,6 @@ $count_radio = 1;
                                                     $ipaddress = 'UNKNOWN';
                                                 return $ipaddress;
                                             }
-                                            
                                             ?>
                                         <input id="ipaddress" name="ipaddress" class="hidden-form" type="hidden" value="<?php echo ipaddress() ?>">
                                         <input id="idproyecto" name="idproyecto" class="hidden-form" type="hidden" value="<?php echo $row["id"] ?>">
