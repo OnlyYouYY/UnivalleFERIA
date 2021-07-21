@@ -1,0 +1,122 @@
+body{
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: url('../img/loginBG.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: 'Poppins', sans-serif;
+}
+body:before{
+    content: "";
+    width: 100%;
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(90deg,#52c4df,#ad55c1);
+    opacity: 0.7;
+    z-index: -1;
+}
+.form__box{
+    width: 400px;
+    height: 500px;
+    background: #900C3F;
+    color:white;
+    top: 50%;
+    left: 50%;
+    margin: 0;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+    border-radius: 20px;
+}
+.form__box h1{
+    font-size: 25px;
+    text-align: center;
+    
+}
+.form__box h3{
+    text-align: center;
+    font-size: 15px;
+}
+.form__box input[type="submit"]{
+    width: 100%;
+    border: none;
+    height: 40px;
+    background: white;
+    color: #9e0044;
+    font-size: 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+.comentarios{
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+/*---------------FORM--------------*/
+    form {
+    width: 250px;
+    margin: 0 auto;
+    height: 50px;
+    }
+    
+    form p {
+    text-align: center;
+    }
+    
+    form label {
+    font-size: 20px;
+    }
+    
+    input[type="radio"] {
+    display: none;
+    }
+    
+    label {
+    color: grey;
+    }
+    
+    .clasificacion {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+    }
+    
+    label:hover,
+    label:hover ~ label {
+    color: orange;
+    }
+    
+    input[type="radio"]:checked ~ label {
+    color: orange;
+    }
+    
+@media(min-width:270px){
+    body{
+        font-size: 50%;
+    }
+    .form__box{
+        margin: 0;
+        padding: 10px;
+        width: 80%;
+        height: 70%;
+    }
+    form{
+        width: 80%;
+    }
+
+}
+@media(min-width:1024px){
+    .form__box{
+        width: 400px;
+        height: 500px;
+    }
+}

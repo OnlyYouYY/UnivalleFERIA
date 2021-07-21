@@ -1,0 +1,196 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+img{
+    display: block;
+    max-width: 100%;
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1.5px;
+}
+body{
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background:linear-gradient(90deg,#52c4df,#ad55c1);
+}
+
+/*--------SECTION---------*/
+.section__titulo{
+    text-align:center;
+    font-size: 40px;
+    color: #ba254a;
+}
+.content{
+    margin: auto;
+    width: 98%;
+    z-index: 11;
+}
+
+/*HEADER*/
+.header{
+
+    
+    height: 100%;
+    /*z-index: 10;*/
+}
+.header .content{
+    
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.logo{
+    margin: 0;
+    width: 20%;
+}
+.icon-menu{
+    display: block;
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    line-height: 45px;
+    border-radius: 5px;
+    margin-top: 15px;
+    margin-right: 40px;
+    cursor: pointer;
+}
+.icon-menu:hover{
+    background: #ba254a;
+    color: #fff;
+}
+/*Menu Styles*/
+
+.nav{
+    position: absolute;
+    top: 60px;
+    left: -100%;
+    width: 100%;
+    transition: all 0.4s;
+}
+.menu{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu__link{
+    display: block;
+    padding: 20px;
+    background: #ba254a;
+    text-decoration: none;
+    color: #fff;
+}
+.menu__link:hover, .select{
+    background: white;
+    color: #ba254a;
+}
+.mostrar{
+    left: 0;
+}
+
+/*--------------FORMULARIO SUBIR--------------*/
+
+/*Footer Styles*/
+.footer{
+    background: #333;
+    position: absolute;
+    width: 100%;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    bottom: 0;
+}
+.footer .social [class^="icon-"]
+{
+    display: inline-block;
+    color: #333;
+    text-decoration: none;
+    font-size: 30px;
+    padding: 10px;
+    background: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    line-height: 40px;
+
+}
+/*Responsive Styles*/
+
+@media(min-width:480px){
+    .nav{
+        width: 100%;
+    }
+    .header{
+        height: 60px;
+    }
+    .logo {
+        margin-top: 10px;
+        width: 35%;
+        height: 35%;
+    }
+    .footer .social [class^="icon-"]{
+        margin: 0 10px;
+    }
+
+}
+@media(min-width:780px){
+    .logo{
+        width: 25%;
+    }
+    .header{
+        height: 80px;
+    }
+    .nav{
+        top: 85px;
+    }
+}
+@media(min-width:1024px){
+
+    .logo{
+        display: none;
+    }
+    .content{
+        width: 1000px;
+    }
+    .header{
+        height: 68px;
+    }
+    
+    .nav{
+        position: static;
+        width: auto;
+        margin-right: 85px;
+        margin-left: 6%;
+    }
+    .menu{
+        display: flex;
+    }
+    .menu__link{
+        background: none;
+        font-size: 20px;
+    }
+    .select{
+        color: white;
+        background: #ba254a;
+    }
+    .icon-menu{
+        display: none;
+    }
+    @media(min-width:1440px){
+        .logo{
+            width: 15%;
+            display: block;
+        }
+        .content{
+            width: 1440px;
+        }
+
+    }
+
+}
