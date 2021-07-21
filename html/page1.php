@@ -3,7 +3,7 @@ include('../php/bd.php');
 session_start();
 $selectrol = $_SESSION['selectrol'];
 $usuario_visitante = $_SESSION['visitante'];
-if($selectrol == 1 && $usuario_visitante == 6){
+if ($selectrol == 1 && $usuario_visitante == 6) {
     $selectrol = 0;
 }
 $proyecto = "SELECT*FROM upload";
@@ -112,13 +112,36 @@ $count_radio = 1;
                                     <source src="<?php echo $row["ruta_archivo"] ?>" id="src<?php echo $count ?>" type='video/mp4'>
                                 </video><br>
                                 <span class="span-php">Titulo: <?php echo $row["titulo"] ?></span>
-                                
+
                                 <a target="_blank" href="<?php echo $row["ruta_pdf"] ?>">
-                                <button class="btn-showcase btn-cerrar" id="document<?php echo $count ?>">Ver Documentacion</button></a>
+                                    <button class="btn-showcase btn-cerrar" id="document<?php echo $count ?>">Ver Documentacion</button></a>
                                 <button class="btn-showcase btn-cerrar" id="cerrar<?php echo $count ?>">Cerrar</button>
                                 <!--FORMULARIO CALIFICACION-->
                                 <div class="form__box">
                                     <form action="../php/calificacion.php" method="POST">
+                                    <?php
+                                            function ipaddress()
+                                            {
+                                                $ipaddress = '';
+                                                if (getenv('HTTP_CLIENT_IP'))
+                                                    $ipaddress = getenv('HTTP_CLIENT_IP');
+                                                else if (getenv('HTTP_X_FORWARDED_FOR'))
+                                                    $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
+                                                else if (getenv('HTTP_X_FORWARDED'))
+                                                    $ipaddress = getenv('HTTP_X_FORWARDED');
+                                                else if (getenv('HTTP_FORWARDED_FOR'))
+                                                    $ipaddress = getenv('HTTP_FORWARDED_FOR');
+                                                else if (getenv('HTTP_FORWARDED'))
+                                                    $ipaddress = getenv('HTTP_FORWARDED');
+                                                else if (getenv('REMOTE_ADDR'))
+                                                    $ipaddress = getenv('REMOTE_ADDR');
+                                                else
+                                                    $ipaddress = 'UNKNOWN';
+                                                return $ipaddress;
+                                            }
+                                            
+                                            ?>
+                                        <input id="ipaddress" name="ipaddress" class="hidden-form" type="hidden" value="<?php echo ipaddress() ?>">
                                         <input id="idproyecto" name="idproyecto" class="hidden-form" type="hidden" value="<?php echo $row["id"] ?>">
                                         <input id="idcarrera" name="idcarrera" class="hidden-form" type="hidden" value="<?php echo $row["id_carrera"] ?>">
                                         <h5 class="form-ct3">¡Dale una calificacion a nuestro trabajo!</h3>
@@ -127,46 +150,45 @@ $count_radio = 1;
                                                 $count_aux = 5;
                                                 for ($i = $count_radio; $i < 5 + $count_radio; $i++) {
                                                 ?>
-                                                    <input onclick="radioschange(event)" class="radios" id="radio<?php echo $i ?>" type="radio" name="estrellas" value="<?php echo $count_aux ?>"><label for="radio<?php echo $i ?>">★</label>
+                                                    <input class="radios" id="radio<?php echo $i ?>" type="radio" name="estrellas" value="<?php echo $count_aux ?>"><label for="radio<?php echo $i ?>">★</label>
                                                 <?php
                                                     $count_aux -= 1;
                                                 }
                                                 $count_radio += 5;
                                                 ?>
                                             </p>
-                                            
-                                            <input disabled onclick="ocultar(event)" id="submit_btn<?php echo $count ?>" class="btn-showcase" type="submit" value="Enviar">
+                                            <input id="submit_btn<?php echo $count ?>" class="btn-showcase" type="submit" value="Enviar">
                                             <script>
-                                                function radioschange(e) {
-                                                    console.log(e);
-                                                    const boton = document.getElementById('submit_btn<?php echo $count ?>');
-                                                    var value = e.target.value;
-                                                    var var_id = e.target.id;
-                                                    var nro_boton = "submit_btn";
-                                                    var substr_id = parseInt(var_id.substr(5, 1));
-                                                    var count_id = <?php echo $count ?>;
-                                                    var inicial = 1;
-                                                    var final = 5;
-                                                    console.log(count_id);
-                                                    for (i = 1; i <= count_id; i++) {
-                                                        if (substr_id >= inicial && substr_id <= final) {
-                                                            nro_boton += i;
-                                                        }
-                                                        inicial += 5;
-                                                        final += 5;
-                                                    }
-                                                    console.log(nro_boton);
-                                                    if (value >= 1 && nro_boton != "submit_btn") {
-                                                        document.getElementById(nro_boton).disabled = false;
-                                                    }
-                                                }
+                                                // function radioschange(e) {
+                                                //     console.log(e);
+                                                //     const boton = document.getElementById('submit_btn<?php echo $count ?>');
+                                                //     var value = e.target.value;
+                                                //     var var_id = e.target.id;
+                                                //     var nro_boton = "submit_btn";
+                                                //     var substr_id = parseInt(var_id.substr(5, 1));
+                                                //     var count_id = <?php echo $count ?>;
+                                                //     var inicial = 1;
+                                                //     var final = 5;
+                                                //     console.log(count_id);
+                                                //     for (i = 1; i <= count_id; i++) {
+                                                //         if (substr_id >= inicial && substr_id <= final) {
+                                                //             nro_boton += i;
+                                                //         }
+                                                //         inicial += 5;
+                                                //         final += 5;
+                                                //     }
+                                                //     console.log(nro_boton);
+                                                //     if (value >= 1 && nro_boton != "submit_btn") {
+                                                //         document.getElementById(nro_boton).disabled = false;
+                                                //     }
+                                                // }
 
                                                 // function ocultar(e) {
 
                                                 //     var id= e.target.id;
                                                 //     document.getElementById(e.target.id).style.display = 'none';
                                                 //     document.cookie = nombre+"="+valor;
-                                                    
+
                                                 // }
                                             </script>
                                     </form>
