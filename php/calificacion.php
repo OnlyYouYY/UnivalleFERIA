@@ -2,13 +2,14 @@
 
 $conexion = mysqli_connect("localhost", "root", "", "jhamileduardomaytaquisbert");
 
+$ipaddress = $_POST['ipaddress'];
 $id_proyecto = $_POST['idproyecto'];
 $id_carrera = $_POST['idcarrera'];
 $calificacion = $_POST['estrellas'];
 
 switch($id_carrera){
 case "1":
-$insertarSQL = "INSERT INTO calificacion(id_proyecto,id_carrera,puntuacion) VALUES ('$id_proyecto','$id_carrera','$calificacion')";
+$insertarSQL = "INSERT INTO calificacion(IP_Address,id_proyecto,id_carrera,puntuacion) VALUES ('$ipaddress','$id_proyecto','$id_carrera','$calificacion')";
 $resultado = mysqli_query($conexion, $insertarSQL);
             if ($resultado) {
                 echo "<script>alert('Se ha enviado el formulario exitosamente'); window.location= '../paginainicio.php'</script>";
