@@ -19,6 +19,5 @@ $para = 'gtr010yam@gmail.com';
 $asunto = 'Asunto del Mensaje';
 
 mail($para, $asunto, utf8_decode($message), $header);
-
 header("Location:../paginainicio.php");
 ?>
