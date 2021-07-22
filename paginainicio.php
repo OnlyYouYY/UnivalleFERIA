@@ -104,7 +104,6 @@ if($selectrol == 1 && $usuario_visitante == 6){
         <li><a href="/html/proyectos.php">
                 <ion-icon name="search"></ion-icon>Proyectos
             </a></li>
-
     </ul>
     <div id="cover-ctn-search"></div>
 
