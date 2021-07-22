@@ -34,6 +34,27 @@ $count_radio = 1;
     <script>
         var array_titulos = [];
     </script>
+    <?php
+    function ipaddress()
+    {
+        $ipaddress = '';
+        if (getenv('HTTP_CLIENT_IP'))
+            $ipaddress = getenv('HTTP_CLIENT_IP');
+        else if (getenv('HTTP_X_FORWARDED_FOR'))
+            $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
+        else if (getenv('HTTP_X_FORWARDED'))
+            $ipaddress = getenv('HTTP_X_FORWARDED');
+        else if (getenv('HTTP_FORWARDED_FOR'))
+            $ipaddress = getenv('HTTP_FORWARDED_FOR');
+        else if (getenv('HTTP_FORWARDED'))
+            $ipaddress = getenv('HTTP_FORWARDED');
+        else if (getenv('REMOTE_ADDR'))
+            $ipaddress = getenv('REMOTE_ADDR');
+        else
+            $ipaddress = 'UNKNOWN';
+        return $ipaddress;
+    }
+    ?>
 
 
     <title>Ingenieria Industrial</title>
@@ -96,13 +117,7 @@ $count_radio = 1;
                     <div>
                         <img src="<?php echo $row["ruta_banner"] ?>" alt="">
                         <h3><?php echo $row["titulo"] ?></h3>
-                        <script>
-                            array_titulos.push({
-                                nombre_proyecto: '<?php echo $row["titulo"] ?>',
-                                estado: 0,
-                                id: 'submit_btn<?php echo $count ?>'
-                            });
-                        </script>
+
                         <p><?php echo $row["descripcion"] ?></p>
                         <button class="btn-showcase" id="open<?php echo $count ?>"> Ver Video</button>
 
@@ -119,28 +134,7 @@ $count_radio = 1;
                                 <!--FORMULARIO CALIFICACION-->
                                 <div class="form__box">
                                     <form action="../php/calificacion.php" method="POST">
-                                    <?php
-                                            function ipaddress()
-                                            {
-                                                $ipaddress = '';
-                                                if (getenv('HTTP_CLIENT_IP'))
-                                                    $ipaddress = getenv('HTTP_CLIENT_IP');
-                                                else if (getenv('HTTP_X_FORWARDED_FOR'))
-                                                    $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
-                                                else if (getenv('HTTP_X_FORWARDED'))
-                                                    $ipaddress = getenv('HTTP_X_FORWARDED');
-                                                else if (getenv('HTTP_FORWARDED_FOR'))
-                                                    $ipaddress = getenv('HTTP_FORWARDED_FOR');
-                                                else if (getenv('HTTP_FORWARDED'))
-                                                    $ipaddress = getenv('HTTP_FORWARDED');
-                                                else if (getenv('REMOTE_ADDR'))
-                                                    $ipaddress = getenv('REMOTE_ADDR');
-                                                else
-                                                    $ipaddress = 'UNKNOWN';
-                                                return $ipaddress;
-                                            }
-                                            ?>
-                                        <input id="ipaddress" name="ipaddress" class="hidden-form" type="hidden" value="<?php echo ipaddress() ?>">
+                                        <input id="ipaddress" name="ipaddress" class="hidden-form" type="hidden" value="<?php echo ipaddress() ?><?php echo $count ?>">
                                         <input id="idproyecto" name="idproyecto" class="hidden-form" type="hidden" value="<?php echo $row["id"] ?>">
                                         <input id="idcarrera" name="idcarrera" class="hidden-form" type="hidden" value="<?php echo $row["id_carrera"] ?>">
                                         <h5 class="form-ct3">¡Dale una calificacion a nuestro trabajo!</h3>
@@ -156,66 +150,17 @@ $count_radio = 1;
                                                 $count_radio += 5;
                                                 ?>
                                             </p>
-                                            
+
                                             <input id="submit_btn<?php echo $count ?>" class="btn-showcase" type="submit" value="Enviar">
-                                            <script>
-                                                // function radioschange(e) {
-                                                //     console.log(e);
-                                                //     const boton = document.getElementById('submit_btn<?php echo $count ?>');
-                                                //     var value = e.target.value;
-                                                //     var var_id = e.target.id;
-                                                //     var nro_boton = "submit_btn";
-                                                //     var substr_id = parseInt(var_id.substr(5, 1));
-                                                //     var count_id = <?php echo $count ?>;
-                                                //     var inicial = 1;
-                                                //     var final = 5;
-                                                //     console.log(count_id);
-                                                //     for (i = 1; i <= count_id; i++) {
-                                                //         if (substr_id >= inicial && substr_id <= final) {
-                                                //             nro_boton += i;
-                                                //         }
-                                                //         inicial += 5;
-                                                //         final += 5;
-                                                //     }
-                                                //     console.log(nro_boton);
-                                                //     if (value >= 1 && nro_boton != "submit_btn") {
-                                                //         document.getElementById(nro_boton).disabled = false;
-                                                //     }
-                                                // }
-
-                                                // function ocultar(e) {
-
-                                                //     var id= e.target.id;
-                                                //     document.getElementById(e.target.id).style.display = 'none';
-                                                //     document.cookie = nombre+"="+valor;
-
-                                                // }
-                                            </script>
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 <?php } ?>
                 <?php mysqli_free_result($resultado); ?>
             </div>
         </div>
-        <script>
-            const proyecto = "Ingenieria Industrial";
-            localStorage.setItem(proyecto, JSON.stringify(array_titulos));
-
-            function validar_calificacion(id) {
-
-                const valores = JSON.parse(localStorage.getItem('Ingenieria Industrial'))
-                valores.map((item, index) => {
-                    if (item.id === id) {
-                        item.estado = 1;
-                    }
-                })
-                localStorage.setItem('Ingenieria Industrial', JSON.stringify(valores));
-            }
-        </script>
         <!--FOOTER-->
         <footer class="footer">
             <div class="container">
