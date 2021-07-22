@@ -9,75 +9,131 @@ $calificacion = $_POST['estrellas'];
 
 switch($id_carrera){
 case "1":
-$insertarSQL = "INSERT INTO calificacion(IP_Address,id_proyecto,id_carrera,puntuacion) VALUES ('$ipaddress','$id_proyecto','$id_carrera','$calificacion')";
-$resultado = mysqli_query($conexion, $insertarSQL);
+    $consulta="SELECT*FROM calificacion WHERE IP_Address = '$ipaddress'";
+    $resultado_consulta=mysqli_query($conexion,$consulta);
+    $filas=mysqli_num_rows($resultado_consulta);
+    if($filas){
+        echo "<script>alert('No puede registrar su voto mas de una vez'); window.location= '../paginainicio.php'</script>";
+    } else {
+            $insertarSQL = "INSERT INTO calificacion(IP_Address,id_proyecto,id_carrera,puntuacion) VALUES ('$ipaddress','$id_proyecto','$id_carrera','$calificacion')";
+            $resultado = mysqli_query($conexion, $insertarSQL);
             if ($resultado) {
                 echo "<script>alert('Se ha enviado el formulario exitosamente'); window.location= '../paginainicio.php'</script>";
             } else {
                 printf("Errormessage: %s\n", mysqli_error($conexion));
             }
-            break;
-            case "2":
-                $insertarSQL = "INSERT INTO calificacion2(id_proyecto,id_carrera,puntuacion) VALUES ('$id_proyecto','$id_carrera','$calificacion')";
-                $resultado = mysqli_query($conexion, $insertarSQL);
+        }
+        break;
+        case "2":
+            $consulta="SELECT*FROM calificacion2 WHERE IP_Address = '$ipaddress'";
+            $resultado_consulta=mysqli_query($conexion,$consulta);
+            $filas=mysqli_num_rows($resultado_consulta);
+            if($filas){
+                echo "<script>alert('No puede registrar su voto mas de una vez'); window.location= '../paginainicio.php'</script>";
+            } else {
+                    $insertarSQL = "INSERT INTO calificacion2(IP_Address,id_proyecto,id_carrera,puntuacion) VALUES ('$ipaddress','$id_proyecto','$id_carrera','$calificacion')";
+                    $resultado = mysqli_query($conexion, $insertarSQL);
+                    if ($resultado) {
+                        echo "<script>alert('Se ha enviado el formulario exitosamente'); window.location= '../paginainicio.php'</script>";
+                    } else {
+                        printf("Errormessage: %s\n", mysqli_error($conexion));
+                    }
+                }
+                break;
+                case "3":
+                    $consulta="SELECT*FROM calificacion3 WHERE IP_Address = '$ipaddress'";
+                    $resultado_consulta=mysqli_query($conexion,$consulta);
+                    $filas=mysqli_num_rows($resultado_consulta);
+                    if($filas){
+                        echo "<script>alert('No puede registrar su voto mas de una vez'); window.location= '../paginainicio.php'</script>";
+                    } else {
+                            $insertarSQL = "INSERT INTO calificacion3(IP_Address,id_proyecto,id_carrera,puntuacion) VALUES ('$ipaddress','$id_proyecto','$id_carrera','$calificacion')";
+                            $resultado = mysqli_query($conexion, $insertarSQL);
                             if ($resultado) {
                                 echo "<script>alert('Se ha enviado el formulario exitosamente'); window.location= '../paginainicio.php'</script>";
                             } else {
                                 printf("Errormessage: %s\n", mysqli_error($conexion));
                             }
-                            break;
-                            case "3":
-                                $insertarSQL = "INSERT INTO calificacion3(id_proyecto,id_carrera,puntuacion) VALUES ('$id_proyecto','$id_carrera','$calificacion')";
-                                $resultado = mysqli_query($conexion, $insertarSQL);
+                        }
+                        break;
+                        case "4":
+                            $consulta="SELECT*FROM calificacion4 WHERE IP_Address = '$ipaddress'";
+                            $resultado_consulta=mysqli_query($conexion,$consulta);
+                            $filas=mysqli_num_rows($resultado_consulta);
+                            if($filas){
+                                echo "<script>alert('No puede registrar su voto mas de una vez'); window.location= '../paginainicio.php'</script>";
+                            } else {
+                                    $insertarSQL = "INSERT INTO calificacion4(IP_Address,id_proyecto,id_carrera,puntuacion) VALUES ('$ipaddress','$id_proyecto','$id_carrera','$calificacion')";
+                                    $resultado = mysqli_query($conexion, $insertarSQL);
+                                    if ($resultado) {
+                                        echo "<script>alert('Se ha enviado el formulario exitosamente'); window.location= '../paginainicio.php'</script>";
+                                    } else {
+                                        printf("Errormessage: %s\n", mysqli_error($conexion));
+                                    }
+                                }
+                                break;
+                                case "5":
+                                    $consulta="SELECT*FROM calificacion5 WHERE IP_Address = '$ipaddress'";
+                                    $resultado_consulta=mysqli_query($conexion,$consulta);
+                                    $filas=mysqli_num_rows($resultado_consulta);
+                                    if($filas){
+                                        echo "<script>alert('No puede registrar su voto mas de una vez'); window.location= '../paginainicio.php'</script>";
+                                    } else {
+                                            $insertarSQL = "INSERT INTO calificacion5(IP_Address,id_proyecto,id_carrera,puntuacion) VALUES ('$ipaddress','$id_proyecto','$id_carrera','$calificacion')";
+                                            $resultado = mysqli_query($conexion, $insertarSQL);
                                             if ($resultado) {
                                                 echo "<script>alert('Se ha enviado el formulario exitosamente'); window.location= '../paginainicio.php'</script>";
                                             } else {
                                                 printf("Errormessage: %s\n", mysqli_error($conexion));
                                             }
-                                            break;
-                                            case "4":
-                                                $insertarSQL = "INSERT INTO calificacion4(id_proyecto,id_carrera,puntuacion) VALUES ('$id_proyecto','$id_carrera','$calificacion')";
-                                                $resultado = mysqli_query($conexion, $insertarSQL);
+                                        }
+                                        break;
+                                        case "6":
+                                            $consulta="SELECT*FROM calificacion6 WHERE IP_Address = '$ipaddress'";
+                                            $resultado_consulta=mysqli_query($conexion,$consulta);
+                                            $filas=mysqli_num_rows($resultado_consulta);
+                                            if($filas){
+                                                echo "<script>alert('No puede registrar su voto mas de una vez'); window.location= '../paginainicio.php'</script>";
+                                            } else {
+                                                    $insertarSQL = "INSERT INTO calificacion6(IP_Address,id_proyecto,id_carrera,puntuacion) VALUES ('$ipaddress','$id_proyecto','$id_carrera','$calificacion')";
+                                                    $resultado = mysqli_query($conexion, $insertarSQL);
+                                                    if ($resultado) {
+                                                        echo "<script>alert('Se ha enviado el formulario exitosamente'); window.location= '../paginainicio.php'</script>";
+                                                    } else {
+                                                        printf("Errormessage: %s\n", mysqli_error($conexion));
+                                                    }
+                                                }
+                                                break;
+                                                case "7":
+                                                    $consulta="SELECT*FROM calificacion7 WHERE IP_Address = '$ipaddress'";
+                                                    $resultado_consulta=mysqli_query($conexion,$consulta);
+                                                    $filas=mysqli_num_rows($resultado_consulta);
+                                                    if($filas){
+                                                        echo "<script>alert('No puede registrar su voto mas de una vez'); window.location= '../paginainicio.php'</script>";
+                                                    } else {
+                                                            $insertarSQL = "INSERT INTO calificacion7(IP_Address,id_proyecto,id_carrera,puntuacion) VALUES ('$ipaddress','$id_proyecto','$id_carrera','$calificacion')";
+                                                            $resultado = mysqli_query($conexion, $insertarSQL);
                                                             if ($resultado) {
                                                                 echo "<script>alert('Se ha enviado el formulario exitosamente'); window.location= '../paginainicio.php'</script>";
                                                             } else {
                                                                 printf("Errormessage: %s\n", mysqli_error($conexion));
                                                             }
-                                                            break;
-                                                            case "5":
-                                                                $insertarSQL = "INSERT INTO calificacion5(id_proyecto,id_carrera,puntuacion) VALUES ('$id_proyecto','$id_carrera','$calificacion')";
-                                                                $resultado = mysqli_query($conexion, $insertarSQL);
-                                                                            if ($resultado) {
-                                                                                echo "<script>alert('Se ha enviado el formulario exitosamente'); window.location= '../paginainicio.php'</script>";
-                                                                            } else {
-                                                                                printf("Errormessage: %s\n", mysqli_error($conexion));
-                                                                            }
-                                                                            break;
-                                                                            case "6":
-                                                                                $insertarSQL = "INSERT INTO calificacion6(id_proyecto,id_carrera,puntuacion) VALUES ('$id_proyecto','$id_carrera','$calificacion')";
-                                                                                $resultado = mysqli_query($conexion, $insertarSQL);
-                                                                                            if ($resultado) {
-                                                                                                echo "<script>alert('Se ha enviado el formulario exitosamente'); window.location= '../paginainicio.php'</script>";
-                                                                                            } else {
-                                                                                                printf("Errormessage: %s\n", mysqli_error($conexion));
-                                                                                            }
-                                                                                            break;
-                                                                                            case "7":
-                                                                                                $insertarSQL = "INSERT INTO calificacion7(id_proyecto,id_carrera,puntuacion) VALUES ('$id_proyecto','$id_carrera','$calificacion')";
-                                                                                                $resultado = mysqli_query($conexion, $insertarSQL);
-                                                                                                            if ($resultado) {
-                                                                                                                echo "<script>alert('Se ha enviado el formulario exitosamente'); window.location= '../paginainicio.php'</script>";
-                                                                                                            } else {
-                                                                                                                printf("Errormessage: %s\n", mysqli_error($conexion));
-                                                                                                            }
-                                                                                                            break;
-                                                                                                            case "8":
-                                                                                                                $insertarSQL = "INSERT INTO calificacion8(id_proyecto,id_carrera,puntuacion) VALUES ('$id_proyecto','$id_carrera','$calificacion')";
-                                                                                                                $resultado = mysqli_query($conexion, $insertarSQL);
-                                                                                                                            if ($resultado) {
-                                                                                                                                echo "<script>alert('Se ha enviado el formulario exitosamente'); window.location= '../paginainicio.php'</script>";
-                                                                                                                            } else {
-                                                                                                                                printf("Errormessage: %s\n", mysqli_error($conexion));
-                                                                                                                            }
-                                                                                                                            break;
+                                                        }
+                                                        break;
+                                                        case "8":
+                                                            $consulta="SELECT*FROM calificacion8 WHERE IP_Address = '$ipaddress'";
+                                                            $resultado_consulta=mysqli_query($conexion,$consulta);
+                                                            $filas=mysqli_num_rows($resultado_consulta);
+                                                            if($filas){
+                                                                echo "<script>alert('No puede registrar su voto mas de una vez'); window.location= '../paginainicio.php'</script>";
+                                                            } else {
+                                                                    $insertarSQL = "INSERT INTO calificacion8(IP_Address,id_proyecto,id_carrera,puntuacion) VALUES ('$ipaddress','$id_proyecto','$id_carrera','$calificacion')";
+                                                                    $resultado = mysqli_query($conexion, $insertarSQL);
+                                                                    if ($resultado) {
+                                                                        echo "<script>alert('Se ha enviado el formulario exitosamente'); window.location= '../paginainicio.php'</script>";
+                                                                    } else {
+                                                                        printf("Errormessage: %s\n", mysqli_error($conexion));
+                                                                    }
+                                                                }
+                                                                break;
         }

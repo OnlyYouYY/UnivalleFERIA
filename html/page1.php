@@ -156,6 +156,7 @@ $count_radio = 1;
                                                 $count_radio += 5;
                                                 ?>
                                             </p>
+                                            
                                             <input id="submit_btn<?php echo $count ?>" class="btn-showcase" type="submit" value="Enviar">
                                             <script>
                                                 // function radioschange(e) {
