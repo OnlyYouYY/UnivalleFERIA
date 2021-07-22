@@ -3,7 +3,7 @@ include('../php/bd.php');
 session_start();
 $selectrol = $_SESSION['selectrol'];
 $usuario_visitante = $_SESSION['visitante'];
-if($selectrol == 1 && $usuario_visitante == 6){
+if ($selectrol == 1 && $usuario_visitante == 6) {
     $selectrol = 0;
 }
 $proyecto = "SELECT*FROM upload_8";
@@ -34,7 +34,27 @@ $count_radio = 1;
     <script>
         var array_titulos = [];
     </script>
-
+    <?php
+    function ipaddress()
+    {
+        $ipaddress = '';
+        if (getenv('HTTP_CLIENT_IP'))
+            $ipaddress = getenv('HTTP_CLIENT_IP');
+        else if (getenv('HTTP_X_FORWARDED_FOR'))
+            $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
+        else if (getenv('HTTP_X_FORWARDED'))
+            $ipaddress = getenv('HTTP_X_FORWARDED');
+        else if (getenv('HTTP_FORWARDED_FOR'))
+            $ipaddress = getenv('HTTP_FORWARDED_FOR');
+        else if (getenv('HTTP_FORWARDED'))
+            $ipaddress = getenv('HTTP_FORWARDED');
+        else if (getenv('REMOTE_ADDR'))
+            $ipaddress = getenv('REMOTE_ADDR');
+        else
+            $ipaddress = 'UNKNOWN';
+        return $ipaddress;
+    }
+    ?>
 
     <title>Desarrollo de Videojuegos</title>
 </head>
@@ -112,13 +132,14 @@ $count_radio = 1;
                                     <source src="<?php echo $row["ruta_archivo"] ?>" id="src<?php echo $count ?>" type='video/mp4'>
                                 </video><br>
                                 <span class="span-php">Titulo: <?php echo $row["titulo"] ?></span>
-                                
+
                                 <a target="_blank" href="<?php echo $row["ruta_pdf"] ?>">
-                                <button class="btn-showcase btn-cerrar" id="document<?php echo $count ?>">Ver Documentacion</button></a>
+                                    <button class="btn-showcase btn-cerrar" id="document<?php echo $count ?>">Ver Documentacion</button></a>
                                 <button class="btn-showcase btn-cerrar" id="cerrar<?php echo $count ?>">Cerrar</button>
                                 <!--FORMULARIO CALIFICACION-->
                                 <div class="form__box">
                                     <form action="../php/calificacion.php" method="POST">
+                                        <input id="ipaddress" name="ipaddress" class="hidden-form" type="hidden" value="<?php echo ipaddress() ?><?php echo $count ?>">
                                         <input id="idproyecto" name="idproyecto" class="hidden-form" type="hidden" value="<?php echo $row["id"] ?>">
                                         <input id="idcarrera" name="idcarrera" class="hidden-form" type="hidden" value="<?php echo $row["id_carrera"] ?>">
                                         <h5 class="form-ct3">¡Dale una calificacion a nuestro trabajo!</h3>
@@ -162,7 +183,7 @@ $count_radio = 1;
 
                                                 function ocultar(e) {
 
-                                                    var id= e.target.id;
+                                                    var id = e.target.id;
                                                     document.getElementById(e.target.id).style.display = 'none';
                                                     const valores = JSON.parse(localStorage.getItem('Ingenieria Industrial'))
                                                     valores.map((item, index) => {
