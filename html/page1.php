@@ -55,6 +55,8 @@ $count_radio = 1;
         return $ipaddress;
     }
     ?>
+
+    
     <title>Ingenieria Industrial</title>
 </head>
 
