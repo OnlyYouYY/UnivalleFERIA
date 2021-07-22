@@ -6,6 +6,14 @@ $usuario_visitante = $_SESSION['visitante'];
 if($selectrol == 1 && $usuario_visitante == 6){
     $selectrol = 0;
 }
+if(!isset($_SESSION['selectrol'])){
+    header('location: ../index.php');
+}
+else{
+    if($_SESSION['selectrol'] >3){
+        header('location: ../paginainicio.php');
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
