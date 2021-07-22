@@ -92,7 +92,7 @@ if($selectrol == 1 && $usuario_visitante == 6){
                         <label for="inputfile" class="form-file-btn form-file-btn2">
                             <ion-icon name="folder" class="icon-file"></ion-icon>Subir MP4
                         </label>
-                        <input type="file" id="inputfile" name="inputfile" class="form__file">
+                        <input type="file" id="inputfile" name="inputfile" class="form__file" accept=".mp4" required onchange="validarvideo()">
 
                     </div>
                     <label class="form__label2">Banner de Proyecto</label>
@@ -100,14 +100,14 @@ if($selectrol == 1 && $usuario_visitante == 6){
                         <label for="inputfile__img" class="form-file-btn btn-input-img">
                             <ion-icon name="folder" class="icon-file"></ion-icon>Subir Imagen
                         </label>
-                        <input type="file" id="inputfile__img" name="inputfile__img" class="form__file">
+                        <input type="file" id="inputfile__img" name="inputfile__img" class="form__file" accept=".jpg,.png,.jpeg" required onchange="validarimagen()">
                     </div>
                     <label class="form__label2">Documento Adjunto/PDF</label>
                     <div class="container__file">
                         <label for="inputfile__pdf" class="form-file-btn btn-input-img">
                             <ion-icon name="folder" class="icon-file"></ion-icon>Subir PDF
                         </label>
-                        <input type="file" id="inputfile__pdf" name="inputfile__pdf" class="form__file">
+                        <input type="file" id="inputfile__pdf" name="inputfile__pdf" class="form__file" accept=".pdf" required onchange="validarpdf()">
                     </div>
                     <label class="form__label2">Selecciona tu carrera</label>
                     <select class="selectcarrera" name="selectcarrera">
@@ -167,6 +167,7 @@ if($selectrol == 1 && $usuario_visitante == 6){
     <script src="../js/maxfilesize.js"></script>
     <script src="../js/funciones.js"></script>
     <script src="../js/formularioupload.js"></script>
+    <script src="../js/validarformulario.js"></script>
 </body>
 
 </html>
