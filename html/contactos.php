@@ -74,13 +74,16 @@ if($selectrol == 1 && $usuario_visitante == 6){
             </div>
         </header>
 
-        <form class="form-main animate__animated animate__fadeInLeft animate__delay-1s" action="">
+        <form class="form-main animate__animated animate__fadeInLeft animate__delay-1s" action="../php/contactos.php" method="POST">
             <h2 class="form__title">Contactos</h2>
             <span class="span-form">Brindamos soporte durante la feria, no dudes en escribirnos para resolver tu caso.</span>
-            <input class="input-main" type="text" name="Nombre" placeholder="Introduzca su Correo">
-            <input class="input-main" type="text" name="Telefono" placeholder="Introduzca su Telefono">
-            <textarea class="input-main-txt" name="mensaje" id="" cols="30" rows="10" placeholder="Escriba aqui su mensaje"></textarea>
+            <input class="input-main" type="text" name="name" placeholder="Introduzca su Nombre">
+            <input class="input-main" type="text" name="mail" placeholder="Introduzca su Correo">
+            <input class="input-main" type="text" name="phone" placeholder="Introduzca su Telefono">
+            <textarea class="input-main-txt" name="message" cols="30" rows="10" placeholder="Escriba aqui el motivo"></textarea>
+            <span class="span-form">Este mensaje llegara a las personas encargadas de la pagina, atenderemos su peticion a la brevedad posible.</span>
             <input class="btn-submit1" type="submit" value="Enviar" id="boton">
+            
         </form>
 
         <!--FOOTER-->
@@ -120,7 +123,6 @@ if($selectrol == 1 && $usuario_visitante == 6){
             </div>
         </footer>
     </div>
-    <script src="../js/appvideo.js"></script>
     <script src="../js/funciones.js"></script>
 </body>
 
