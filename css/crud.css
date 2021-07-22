@@ -32,6 +32,7 @@ body {
   margin: auto;
   width: 98%;
   z-index: 11;
+  margin-bottom: 280px;
 }
 /*DATAGRIDVIEW*/
 .container-table {

@@ -79,39 +79,11 @@ if($selectrol == 1 && $usuario_visitante == 6){
         </header>
         <!--CHART-->
         <div class="content animate__animated animate__fadeInUp animate__delay-1s">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="bg-success text-white text-center m-3">
-                        <div class="card-header">Total Votos</div>
-                        <div class="card-body">
-                            <h5 class="h1 card-title"><span id="totalvotos">30</span></h5>
-                            <p class="card-text">El total de votos ejercidos por todos los estudiantes</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="bg-warning text-white text-center m-3">
-                        <div class="card-header">Total Estudiantes</div>
-                        <div class="card-body">
-                            <h5 class="h1 card-title"><span id="totalestudiantes">100</span></h5>
-                            <p class="card-text">El numero de estudiantes que ingresaron a la plataforma</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="bg-info text-white text-center m-3">
-                        <div class="card-header">Total Proyectos</div>
-                        <div class="card-body">
-                            <h5 class="h1 card-title"><span id="totalproyectos">50</span></h5>
-                            <p class="card-text">Numero de proyectos subidos a la plataforma</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="content">
                 <button class="btn btn-success btn__success" role="link" onclick="window.location='../html/crud.php'">Ingresa al Crud</button>
                 <style>
                     .btn__success {
+                        margin-top: 15px;
                         font-size: 20px;
                         margin-bottom: 15px;
                         padding: 20px;

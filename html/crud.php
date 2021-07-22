@@ -99,25 +99,6 @@ if($selectrol == 1 && $usuario_visitante == 6){
                 <?php mysqli_free_result($resultado); 
                 ?>
             </div>
-            <div class="container-table">
-                <div class="table__title">Datos de Proyecto<a href="../php/edicion.php" class="title__edit">Edicion</a></div>
-                <div class="table__header">Titulo</div>
-                <div class="table__header">Descripcion</div>
-                <div class="table__header">Carrera</div><br>
-                <?php $resultado = mysqli_query($conexion, $usuarios);
-                while ($row = mysqli_fetch_assoc($resultado)) { 
-                ?>
-                <div class="table__item"><?php echo $row["usuario"] 
-                                            ?></div>
-                <div class="table__item"><?php echo $row["contraseña"] 
-                                            ?></div>
-                <div class="table__item"><?php echo $row["rol"] 
-                                            ?></div><br>
-                <?php } 
-                ?>
-                <?php mysqli_free_result($resultado); 
-                ?>
-            </div>
         </div>
         <!--FOOTER-->
         <footer class="footer">
